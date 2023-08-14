@@ -1,0 +1,67 @@
+<h2>Product Details</h2>
+
+<form>
+    <div class="grid-container">
+        <div class="grid-item">
+            <label for="name"><span class="red">*</span>Product Name:</label>
+        </div>
+        <div class="grid-item"> 
+            <input type="text" [(ngModel)]="productDetails.name" id="name" name="name"
+            pInputText class="form-control" required #name="ngModel" />
+
+            <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+                <div [hidden]="!name.errors.required">
+                    <span class="red">Required Field</span>
+                </div>
+            </div>
+        </div>      
+
+
+        <div class="grid-item">
+            <label for="category"><span class="red">*</span>Category:</label>
+        </div>
+        <div class="grid-item"> 
+            <input type="text" [(ngModel)]="productDetails.category" id="category" name="category"
+            pInputText class="form-control" required #category="ngModel" />
+
+            <div *ngIf="category.errors && (category.dirty || category.touched)" class="alert alert-danger">
+                <div [hidden]="!category.errors.required">
+                    <span class="red">Required Field</span>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="grid-item">
+            <label for="name"><span class="red">*</span>Price:</label>
+        </div>
+        <div class="grid-item">
+            <input type="text" [(ngModel)]="productDetails.price" id="price" name="price"
+            pInputText class="form-control" required #price="ngModel" />
+
+            <div *ngIf="price.errors && (price.dirty || price.touched)" class="alert alert-danger">
+                <div [hidden]="!price.errors.required">
+                    <span class="red">Required Field</span>
+                </div>
+            </div>
+        </div> 
+        
+
+        <div class="grid-item"></div>
+        <div class="grid-item">
+            <button type="submit" pButton (click)="submitForm()" label="Submit"></button>
+            <button type="button" pButton (click)="cancel()" label="Cancel" class="btn-mar"></button>
+        </div>
+    </div>
+</form>
+
+<div class="card flex justify-content-center">    
+    <p-dialog header="Alert" [(visible)]="visible" [style]="{width: '50vw'}">
+        <p>
+            All fields are mandatory
+        </p>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="visible = false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-dialog>
+</div>

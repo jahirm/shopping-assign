@@ -1,0 +1,36 @@
+<h3>Category Details</h3>
+
+<form>
+    <div class="grid-container">
+        <div class="grid-item">
+            <label for="name"><span class="red">*</span>Category Name:</label>
+        </div>
+        <div class="grid-item"> 
+            <input type="text" [(ngModel)]="categoryDetails.name" id="name" name="name"
+            pInputText class="form-control" required #name="ngModel" />
+
+            <div *ngIf="name.errors && (name.dirty || name.touched)" class="alert alert-danger">
+                <div [hidden]="!name.errors.required">
+                    <span class="red">Required Field</span>
+                </div>
+            </div>
+        </div>  
+        
+        <div class="grid-item"></div>
+        <div class="grid-item">
+            <button type="submit" pButton (click)="submitForm()" label="Submit"></button>
+            <button type="button" pButton (click)="cancel()" label="Cancel" class="btn-mar"></button>
+        </div>
+    </div>      
+</form>
+
+<div class="card flex justify-content-center">    
+    <p-dialog header="Alert" [(visible)]="visible" [style]="{width: '50vw'}">
+        <p>
+            Field is mandatory
+        </p>
+        <ng-template pTemplate="footer">
+            <p-button icon="pi pi-check" (click)="visible = false" label="Ok" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-dialog>
+</div>

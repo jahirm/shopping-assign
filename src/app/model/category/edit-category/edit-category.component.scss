@@ -1,0 +1,17 @@
+.red{
+    color: red;
+}
+.btn-mar{
+    margin-left: 10px;
+}
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: auto auto;   
+    padding: 10px;
+  }
+  .grid-item {     
+    padding: 10px;
+    font-size: 20px;
+    text-align: left;
+  }
